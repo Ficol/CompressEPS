@@ -14,12 +14,12 @@ class Chain
     void addPoint(const int x, const int y);
     std::string writeInstruction();
     void simplify();
-
   private:
     typedef std::pair<int, int> Point;
     std::list<Point> chain;
     const size_t line_width;
-    static const size_t visible_length;
+    static size_t visible_length;
+    friend class Converter;
 };
 
 #endif //CHAIN_H

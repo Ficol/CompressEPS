@@ -17,6 +17,9 @@ class Converter
     void createOutputFile(const std::string &output_file = "output.eps");
 
   private:
+  typedef std::pair<int, int> Point;
+    typedef std::pair<Point, Point> Box;
+    size_t calculateChainVisibleLength(const Box bounding_box, const size_t width, const size_t height) const;
     InstructionReader instruction_reader;
     std::vector<Chain> chains;
     std::unique_ptr<Bitmap> bitmap;
