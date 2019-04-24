@@ -1,3 +1,6 @@
+#ifndef INSTRUCTIONREADER_H
+#define INSTRUCTIONREADER_H
+
 #include <fstream>
 #include <string>
 #include <vector>
@@ -6,16 +9,21 @@
 
 class InstructionReader
 {
-public:
-    InstructionReader(std::string fileName);
-    void checkFormat();
-    int setVisibleSize();
-    void readChains(std::vector<Chain> &chains);
-    void readPoints(Bitmap &bitmap);
-private:
-    InstructionReader() = delete;
-    InstructionReader(const InstructionReader&) = delete;
-    InstructionReader& operator=(const InstructionReader&) = delete;
+  public:
+    InstructionReader(const std::string &file_name);
+    InstructionReader(const InstructionReader &) = delete;
+    InstructionReader &operator=(const InstructionReader &) = delete;
+    ~InstructionReader();
+    
+    void checkFormat() const;
+    typedef std::pair<int, int> Point;
+    typedef std::pair<Point, Point> Box;
+    Box getBoundingBox() const;
+    void addChains(std::vector<Chain> &chains) const;
+    void addRectangles(Bitmap &bitmap) const;
 
-    std::ifstream epsFile;
-}
+  private:
+    std::ifstream eps_file;
+};
+
+#endif //INSTRUCTIONREADER_H
