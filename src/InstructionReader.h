@@ -4,26 +4,29 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <memory>
 #include "Bitmap.h"
 #include "Chain.h"
 
 class InstructionReader
 {
-  public:
-    InstructionReader(const std::string &file_name);
-    InstructionReader(const InstructionReader &) = delete;
-    InstructionReader &operator=(const InstructionReader &) = delete;
-    ~InstructionReader();
-    
-    void checkFormat() const;
-    typedef std::pair<int, int> Point;
-    typedef std::pair<Point, Point> Box;
-    Box getBoundingBox() const;
-    void addChains(std::vector<Chain> &chains) const;
-    void addRectangles(Bitmap &bitmap) const;
+public:
+  using Point = std::pair<int, int>;
+  using Box = std::pair<Point, Point>;
+  
+  InstructionReader(const std::string &file_name);
+  InstructionReader(const InstructionReader &) = delete;
+  InstructionReader &operator=(const InstructionReader &) = delete;
 
-  private:
-    std::ifstream eps_file;
+  void checkFormat() const;
+  Box getBoundingBox() const;
+  void setChains(std::vector<Chain> &chains, const size_t width) const;
+  void setBitmap(std::unique_ptr<Bitmap> &bitmap, const size_t width) const;
+  std::string getPrologue() const;
+  std::string getEpilogue() const;
+
+private:
+  std::ifstream eps_file;
 };
 
 #endif //INSTRUCTIONREADER_H

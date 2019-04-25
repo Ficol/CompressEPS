@@ -8,22 +8,20 @@
 
 class Converter
 {
-  public:
-    Converter(const std::string &input_file, const size_t width = 1000, const size_t height = 1000);
-    Converter(const Converter &) = delete;
-    Converter &operator=(const Converter &) = delete;
+public:
+  Converter(const std::string &input_file, const size_t width = 1000);
+  Converter(const Converter &) = delete;
+  Converter &operator=(const Converter &) = delete;
 
-    void compress();
-    void createOutputFile(const std::string &output_file = "output.eps");
+  void compress();
+  void createOutputFile(const std::string &output_file = "output.eps");
 
-  private:
-  typedef std::pair<int, int> Point;
-    typedef std::pair<Point, Point> Box;
-    size_t calculateChainVisibleLength(const Box bounding_box, const size_t width, const size_t height) const;
-    InstructionReader instruction_reader;
-    std::vector<Chain> chains;
-    std::unique_ptr<Bitmap> bitmap;
-    std::ofstream new_eps_file;
+private:
+
+  InstructionReader instruction_reader;
+  std::vector<Chain> chains;
+  std::unique_ptr<Bitmap> bitmap;
+  std::ofstream new_eps_file;
 };
 
 #endif //CONVERTER_H

@@ -7,7 +7,7 @@
 class Chain
 {
   public:
-    Chain(const size_t line_width);
+    Chain(const size_t line_width, const size_t visible_length);
     Chain(const Chain &) = delete;
     Chain &operator=(const Chain &) = delete;
 
@@ -15,11 +15,8 @@ class Chain
     std::string writeInstruction();
     void simplify();
   private:
-    typedef std::pair<int, int> Point;
-    std::list<Point> chain;
     const size_t line_width;
-    static size_t visible_length;
-    friend class Converter;
+    const size_t visible_length;
 };
 
 #endif //CHAIN_H
