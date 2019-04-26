@@ -4,12 +4,15 @@
 #include <memory>
 #include <vector>
 #include <fstream>
+
 #include "InstructionInterpreter.h"
+#include "Bitmap.h"
+#include "Chain.h"
 
 class Converter
 {
 public:
-  Converter(const std::string &input_file, const size_t width);
+  Converter(const std::string &input_file, const int target_width);
   Converter(const Converter &) = delete;
   Converter &operator=(const Converter &) = delete;
 
@@ -17,11 +20,10 @@ public:
   void createOutputFile(const std::string &output_file = "output.eps");
 
 private:
-
   InstructionInterpreter instruction_interpreter;
   std::vector<Chain> chains;
   std::unique_ptr<Bitmap> bitmap;
   std::ofstream output_file;
 };
 
-#endif //CONVERTER_H
+#endif // CONVERTER_H

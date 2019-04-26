@@ -7,20 +7,21 @@
 
 class Chain
 {
-  public:
-    using Point = std::pair<int, int>;
+public:
+  using Point = std::pair<int, int>;
 
-    Chain(const size_t line_width, const size_t visible_length);
-    Chain(const Chain &) = delete;
-    Chain &operator=(const Chain &) = delete;
+  Chain(const int line_width, const int visible_length);
+  Chain(const Chain &) = delete;
+  Chain &operator=(const Chain &) = delete;
 
-    void addPoint(const int x, const int y);
-    std::string writeInstruction() const;
-    void simplify();
-  private:
-    std::list<Point> chain;
-    const size_t line_width;
-    const size_t visible_length;
+  void addPoint(const Point point);
+  std::string writeInstruction() const;
+  void simplify();
+
+private:
+  std::list<Point> chain;
+  const int line_width;
+  const int visible_length;
 };
 
-#endif //CHAIN_H
+#endif // CHAIN_H

@@ -1,11 +1,10 @@
 #include "Chain.h"
 
-Chain::Chain(const size_t line_width, const size_t visible_length) : line_width(line_width), visible_length(visible_length)
+Chain::Chain(const int line_width, const int visible_length) : line_width(line_width), visible_length(visible_length)
 {
-    /**/
 }
 
-void Chain::addPoint(const int x, const int y)
+void Chain::addPoint(const Point point)
 {
     /**/
 }

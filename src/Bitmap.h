@@ -3,14 +3,14 @@
 
 #include <string>
 #include <utility>
-#include <memory>
+#include <vector>
 
 class Bitmap
 {
 public:
   using Point = std::pair<int, int>;
   using Box = std::pair<Point, Point>;
-  Bitmap(const Box bounding_box, size_t visible_length);
+  Bitmap(const Box bounding_box, int visible_length);
   Bitmap(const Bitmap &) = delete;
   Bitmap &operator=(const Bitmap &) = delete;
 
@@ -22,18 +22,20 @@ private:
   void mergeCloseRectangles();
   void deleteSmallRectangles();
 
+  const int visible_length;
+  const Box bounding_box;
   class Array2D
   {
   public:
-    Array2D(const Bitmap::Box bounding_box);
+    Array2D(const int width, const int height);
 
-    bool index(const size_t x, const size_t y) const;
+    bool index(const int x, const int y) const;
 
+    const int width;
+    const int height;
   private:
-    const Bitmap::Box bounding_box;
-    std::unique_ptr<bool[]> array;
-  } array;
-  const size_t visible_length;
+    std::vector<bool> array;
+  } bitmap;
 };
 
-#endif //BITMAP_H
+#endif // BITMAP_H
