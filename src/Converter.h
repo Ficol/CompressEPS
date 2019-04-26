@@ -4,12 +4,12 @@
 #include <memory>
 #include <vector>
 #include <fstream>
-#include "InstructionReader.h"
+#include "InstructionInterpreter.h"
 
 class Converter
 {
 public:
-  Converter(const std::string &input_file, const size_t width = 1000);
+  Converter(const std::string &input_file, const size_t width);
   Converter(const Converter &) = delete;
   Converter &operator=(const Converter &) = delete;
 
@@ -18,10 +18,10 @@ public:
 
 private:
 
-  InstructionReader instruction_reader;
+  InstructionInterpreter instruction_interpreter;
   std::vector<Chain> chains;
   std::unique_ptr<Bitmap> bitmap;
-  std::ofstream new_eps_file;
+  std::ofstream output_file;
 };
 
 #endif //CONVERTER_H

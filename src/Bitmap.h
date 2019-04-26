@@ -10,7 +10,6 @@ class Bitmap
 public:
   using Point = std::pair<int, int>;
   using Box = std::pair<Point, Point>;
-  
   Bitmap(const Box bounding_box, size_t visible_length);
   Bitmap(const Bitmap &) = delete;
   Bitmap &operator=(const Bitmap &) = delete;
@@ -26,12 +25,12 @@ private:
   class Array2D
   {
   public:
-    Array2D(const Box bounding_box);
+    Array2D(const Bitmap::Box bounding_box);
 
     bool index(const size_t x, const size_t y) const;
 
   private:
-    const Box bounding_box;
+    const Bitmap::Box bounding_box;
     std::unique_ptr<bool[]> array;
   } array;
   const size_t visible_length;

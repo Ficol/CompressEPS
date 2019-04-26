@@ -1,5 +1,5 @@
-#ifndef INSTRUCTIONREADER_H
-#define INSTRUCTIONREADER_H
+#ifndef INSTRUCTIONINTERPRETER_H
+#define INSTRUCTIONINTERPRETER_H
 
 #include <fstream>
 #include <string>
@@ -8,15 +8,15 @@
 #include "Bitmap.h"
 #include "Chain.h"
 
-class InstructionReader
+class InstructionInterpreter
 {
 public:
   using Point = std::pair<int, int>;
   using Box = std::pair<Point, Point>;
   
-  InstructionReader(const std::string &file_name);
-  InstructionReader(const InstructionReader &) = delete;
-  InstructionReader &operator=(const InstructionReader &) = delete;
+  InstructionInterpreter(const std::string &file_name);
+  InstructionInterpreter(const InstructionInterpreter &) = delete;
+  InstructionInterpreter &operator=(const InstructionInterpreter &) = delete;
 
   void checkFormat() const;
   Box getBoundingBox() const;
@@ -29,4 +29,4 @@ private:
   std::ifstream eps_file;
 };
 
-#endif //INSTRUCTIONREADER_H
+#endif //INSTRUCTIONINTERPRETER_H

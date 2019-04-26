@@ -3,16 +3,15 @@
 
 int main(int argc, char *argv[]) //argv[1] wejsciowy plik, argv[2] wyjsciowy plik, argv[3] docelowa szerokosc obrazu
 {
+    /*
     try
     {
-        Converter converter(argv[1]);
+        Converter converter();
         converter.compress();
         converter.createOutputFile();
     }
-    catch (const std::exception &e)
+    catch ()
     {
-        std::cerr << e.what() << '\n';
     }
-
-    return 0;
+    */
 }

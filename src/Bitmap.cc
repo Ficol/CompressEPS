@@ -12,7 +12,8 @@ void Bitmap::fillBitmap(const Point left_down, const Point right_down)
 
 void Bitmap::simplify()
 {
-    /**/
+    mergeCloseRectangles();
+    deleteSmallRectangles();
 }
 
 std::string Bitmap::writeInstructions() const

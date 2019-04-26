@@ -3,18 +3,22 @@
 
 #include <list>
 #include <string>
+#include <utility>
 
 class Chain
 {
   public:
+    using Point = std::pair<int, int>;
+
     Chain(const size_t line_width, const size_t visible_length);
     Chain(const Chain &) = delete;
     Chain &operator=(const Chain &) = delete;
 
     void addPoint(const int x, const int y);
-    std::string writeInstruction();
+    std::string writeInstruction() const;
     void simplify();
   private:
+    std::list<Point> chain;
     const size_t line_width;
     const size_t visible_length;
 };
