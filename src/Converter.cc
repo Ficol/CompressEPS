@@ -14,7 +14,7 @@ void Converter::compress()
         a.simplify();
 }
 
-void Converter::createOutputFile(const std::string &output_file = "output.eps")
+void Converter::createOutputFile(const std::string &output_file)
 {
     /*
     instruction_interpreter.getPrologue();

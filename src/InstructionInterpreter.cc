@@ -22,7 +22,6 @@ void InstructionInterpreter::setChains(std::vector<Chain> &chains, const int tar
 
 void InstructionInterpreter::setBitmap(std::unique_ptr<Bitmap> &bitmap, const int target_width) const
 {
-    bitmap = std::make_unique<Bitmap>(getBoundingBox());
     /**/
 }
 
