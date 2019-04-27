@@ -2,5 +2,5 @@
 
 Do skompilowania projektu potrzebne są:
 
-  - scons
+  - CMake
   - kompilator c++ (niezbędny standard c++14)
