@@ -1,21 +1,16 @@
 # Odchudzanie plików .eps
 
+# Wymagania
+
 Do skompilowania projektu potrzebne są:
 
-  - CMake v3.5+
+  - CMake v3.5+ (sudo apt-get install cmake)
   - kompilator c++ (niezbędny standard c++14)
-  - make
+  - make (sudo apt-get install build-essential)
 
 Dodatkowo do testowania:
 
   - boost (sudo apt-get install libboost-all-dev)
-
-# Instalacja CMake
-
-W terminalu:
-
-	$ sudo apt-get install build-essential
-	$ sudo apt-get install cmake
 
 # Uruchomienie aplikacji
 
@@ -26,3 +21,4 @@ W terminalu:
 	$ cmake ..
 	$ make
 	$ ./CompressEPS <ścieżka do wejściowego pliku> <ścieżka do wyjściowego pliku> <docelowa szerokość obrazu>
+	$ ./CompressEPSTests #do uruchomienia testów

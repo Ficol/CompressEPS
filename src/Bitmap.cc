@@ -1,11 +1,11 @@
 #include "Bitmap.h"
 
-Bitmap::Bitmap(const Box bounding_box, int visible_length) : bounding_box(bounding_box), visible_length(visible_length), bitmap((std::get<1>(std::get<0>(bounding_box)) - (std::get<0>(std::get<0>(bounding_box)))), (std::get<1>(std::get<1>(bounding_box)) - (std::get<0>(std::get<1>(bounding_box)))))
+Bitmap::Bitmap(const Box bounding_box, int visible_length) : bounding_box(bounding_box), visible_length(visible_length), bitmap((bounding_box.second.first - bounding_box.first.first), (bounding_box.second.second - bounding_box.first.second))
 {
     /**/
 }
 
-void Bitmap::fillBitmap(const Point left_down, const Point right_up)
+void Bitmap::addRectangle(const Point left_down, const Point right_up)
 {
     /**/
 }
