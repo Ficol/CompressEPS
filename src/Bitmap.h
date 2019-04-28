@@ -4,13 +4,14 @@
 #include <string>
 #include <utility>
 #include <vector>
+#include <cmath>
 
 class Bitmap
 {
 public:
-  using Point = std::pair<int, int>;
+  using Point = std::pair<double, double>;
   using Box = std::pair<Point, Point>;
-  Bitmap(const Box bounding_box, int visible_length);
+  Bitmap(const Box bounding_box, double visible_length);
   Bitmap(const Bitmap &) = delete;
   Bitmap &operator=(const Bitmap &) = delete;
 
@@ -27,12 +28,11 @@ private:
   class Array2D
   {
   public:
-    Array2D(const int width, const int height);
+    Array2D(const double width, const double height);
 
     bool index(const int x, const int y) const;
 
     const int width;
-    const int height;
   private:
     std::vector<bool> array;
   } bitmap;

@@ -8,14 +8,14 @@
 class Chain
 {
 public:
-  using Point = std::pair<int, int>;
+  using Point = std::pair<double, double>;
 
-  Chain(const int line_width, const int visible_length);
+  Chain(const double line_width, const double visible_length);
   Chain(const Chain &) = delete;
   Chain &operator=(const Chain &) = delete;
 
   void addPoint(const Point point);
-  std::string writeInstruction() const;
+  std::string writeInstructions() const;
   void simplify();
 
 private:

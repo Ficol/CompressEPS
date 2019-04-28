@@ -13,7 +13,7 @@
 class InstructionInterpreter
 {
 public:
-  using Point = std::pair<int, int>;
+  using Point = std::pair<double, double>;
   using Box = std::pair<Point, Point>;
 
   InstructionInterpreter(const std::string &file_name);
