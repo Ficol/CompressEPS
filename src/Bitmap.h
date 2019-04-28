@@ -22,8 +22,8 @@ private:
   void mergeCloseRectangles();
   void deleteSmallRectangles();
 
-  const int visible_length;
   const Box bounding_box;
+  const int visible_length;
   class Array2D
   {
   public:

@@ -1,2 +1,1 @@
-add_executable(SOURCE_FILES Chain.h, Chain.cc, Bitmap.h, Bitmap.cc, Converter.h, Converter.cc,  InstructionInterpreter.h, InstructionInterpreter.cc, CompressEPS.cc)
-add_library(src ${SOURCE_FILES})
+add_executable(CompressEPS CompressEPS.cc Chain.cc Chain.h Bitmap.cc Bitmap.h InstructionInterpreter.cc InstructionInterpreter.h Converter.cc Converter.h)
