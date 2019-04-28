@@ -5,7 +5,7 @@ Bitmap::Bitmap(const Box bounding_box, int visible_length) : bounding_box(boundi
     /**/
 }
 
-void Bitmap::addRectangle(const Point left_down, const Point right_up)
+void Bitmap::addRectangle(const Box rectangle)
 {
     /**/
 }

@@ -14,7 +14,7 @@ public:
   Bitmap(const Bitmap &) = delete;
   Bitmap &operator=(const Bitmap &) = delete;
 
-  void addRectangle(const Point left_down, const Point right_down);
+  void addRectangle(const Box rectangle);
   void simplify();
   std::string writeInstructions() const;
 
