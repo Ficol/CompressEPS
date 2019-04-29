@@ -26,3 +26,5 @@ BOOST_AUTO_TEST_CASE(simplifyTest_WhenThreePointsCollinear)
     chain.addPoint(Chain::Point(2.0, 3.0));
     BOOST_CHECK(chain.writeInstructions() == "0.0 0.0 m\n2.0 3.0 l\n2.0 setlinewidth\nstroke");
 }
+
+/**/

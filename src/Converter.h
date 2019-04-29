@@ -17,7 +17,7 @@ public:
   Converter &operator=(const Converter &) = delete;
 
   void compress();
-  void createOutputFile(const std::string &output_file = "output.eps");
+  void saveOutputFile(const std::string &output_file = "output.eps");
 
 private:
   InstructionInterpreter instruction_interpreter;

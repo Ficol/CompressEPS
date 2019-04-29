@@ -14,7 +14,7 @@ void Converter::compress()
         a.simplify();
 }
 
-void Converter::createOutputFile(const std::string &output_file)
+void Converter::saveOutputFile(const std::string &output_file)
 {
     /*
     instruction_interpreter.getPrologue();

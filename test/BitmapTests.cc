@@ -26,3 +26,5 @@ BOOST_AUTO_TEST_CASE( simplifyTest_WhenTwoRectanglesNextToEachOther )
     bitmap.addRectangle(Bitmap::Box(Bitmap::Point(10.0, 0.0), Bitmap::Point(20.0, 10.0)));
     BOOST_CHECK( bitmap.writeInstructions() == "0.0 0.0 20.0 10.0 r p2\n");
 }
+
+/**/
