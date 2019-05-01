@@ -14,7 +14,7 @@ Dodatkowo do testowania:
 
 # Uruchomienie aplikacji
 
-W terminalu:
+Linux:
 	
 	$ mkdir bin
 	$ cd bin
@@ -22,3 +22,11 @@ W terminalu:
 	$ make
 	$ ./CompressEPS <ścieżka do wejściowego pliku> <ścieżka do wyjściowego pliku> <docelowa szerokość obrazu>
 	$ ./CompressEPSTests #do uruchomienia testów
+
+Windows:
+	
+	$ mkdir bin
+	$ cd bin
+	$ cmake -G "nazwa kompilatora" ..
+	$ cmake --build .
+

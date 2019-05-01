@@ -10,7 +10,8 @@ BOOST_AUTO_TEST_CASE( InstructionInterpreterConstructorTest_WhenNotExistingFile 
 
 BOOST_AUTO_TEST_CASE( checkFormatTest_WhenFileWithoutBoundingBoxDefined )
 {
-    BOOST_CHECK_THROW(InstructionInterpreter("../test/testFiles/NoBoundingBox").checkFormat(), std::invalid_argument);
+    InstructionInterpreter instruction_interpreter("../test/testFiles/NoBoundingBox");
+    BOOST_CHECK_THROW(instruction_interpreter.checkFormat(), std::invalid_argument);
 }
 
 /**/
