@@ -7,7 +7,13 @@ Bitmap::Bitmap(const Box bounding_box, double visible_length) : bounding_box(bou
 
 void Bitmap::addRectangle(const Box rectangle)
 {
-    /**/
+    for(int i = rectangle.first.second; i != rectangle.second.second; ++i)
+    {
+        for(int j = rectangle.first.first; i != rectangle.second.first; ++j)
+        {
+            bitmap.get(i, j) = 1;
+        }
+    }
 }
 
 void Bitmap::simplify()
@@ -33,10 +39,10 @@ void Bitmap::deleteSmallRectangles()
 
 Bitmap::Array2D::Array2D(const double width, const double height) : width(ceil(width))
 {
-    array = std::vector<bool>(ceil(width) * ceil(height));
+    array = std::vector<char>(ceil(width) * ceil(height));
 }
 
-bool Bitmap::Array2D::index(const int x, const int y) const
+char &Bitmap::Array2D::get(const int x, const int y)
 {
     return array[y * width + x];
 }

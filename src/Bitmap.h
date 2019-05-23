@@ -30,11 +30,10 @@ private:
   public:
     Array2D(const double width, const double height);
 
-    bool index(const int x, const int y) const;
+    char &get(const int x, const int y);
 
     const int width;
-  private:
-    std::vector<bool> array;
+    std::vector<char> array;
   } bitmap;
 };
 

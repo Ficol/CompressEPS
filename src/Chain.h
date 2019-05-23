@@ -4,6 +4,7 @@
 #include <list>
 #include <string>
 #include <utility>
+#include <cmath>
 
 class Chain
 {
@@ -22,6 +23,9 @@ private:
   std::list<Point> chain;
   const int line_width;
   const int visible_length;
+
+  double measureSegment(const Point a, const Point b);
+  std::string writePointInstruction(const Point a);
 };
 
 #endif // CHAIN_H
