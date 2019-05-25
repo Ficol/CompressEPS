@@ -14,13 +14,15 @@ void Converter::compress()
         a.simplify();
 }
 
-void Converter::saveOutputFile(const std::string &output_file)
+void Converter::saveOutputFile(const std::string &output_file_name)
 {
-    /*
-    instruction_interpreter.getPrologue();
-    bitmap.writeInstructions();
-    for(const auto a : chains)
-        a.writeInstruction();
-    instruction_interpreter.getEpilogue()
-    */
+    output_file.open(output_file_name);
+    if(!output_file.is_open())
+        throw std::ios_base::failure("Can't open output file\n");
+    output_file << instruction_interpreter.getPrologue()
+    << bitmap->writeInstructions();
+    for(const Chain &a : chains)
+        output_file << a.writeInstructions();
+    output_file << instruction_interpreter.getEpilogue();
+    output_file.close();
 }

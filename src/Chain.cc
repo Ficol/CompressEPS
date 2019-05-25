@@ -41,7 +41,7 @@ void Chain::simplify()
             --i;
             chain.erase(++i);
         }
-        ++i;
+        else ++i;
     }
 }
 

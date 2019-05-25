@@ -14,7 +14,7 @@ public:
   Bitmap(const Box bounding_box, double visible_length);
   Bitmap(const Bitmap &) = delete;
   Bitmap &operator=(const Bitmap &) = delete;
-
+  enum state {empty, filled, written};
   void addRectangle(const Box rectangle);
   void simplify();
   std::string writeInstructions() const;
@@ -22,6 +22,8 @@ public:
 private:
   void mergeCloseRectangles();
   void deleteSmallRectangles();
+  bool isRectangleSmall(int x, int y);
+  void deleteRectangle(int x, int y);
 
   const Box bounding_box;
   const int visible_length;
@@ -30,10 +32,11 @@ private:
   public:
     Array2D(const double width, const double height);
 
-    char &get(const int x, const int y);
+    state &index(const int x, const int y);
 
     const int width;
-    std::vector<char> array;
+    const int height;
+    std::vector<state> array;
   } bitmap;
 };
 
