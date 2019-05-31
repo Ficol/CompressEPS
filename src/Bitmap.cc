@@ -7,11 +7,11 @@ Bitmap::Bitmap(const Box bounding_box, double visible_length) : bounding_box(bou
 
 void Bitmap::addRectangle(const Box rectangle)
 {
-    for (int j = std::max(rectangle.first.second, bounding_box.first.second); j < rectangle.second.second && j < bounding_box.second.second; ++j)
+    for (int i = std::round(std::max(rectangle.first.second, bounding_box.first.second)); i < rectangle.second.second && i < bounding_box.second.second; ++i)
     {
-        for (int i = std::max(rectangle.first.first, bounding_box.first.first); i < rectangle.second.first && j < bounding_box.second.first; ++i)
+        for (int j = std::round(std::max(rectangle.first.first, bounding_box.first.first)); j < rectangle.second.first && j < bounding_box.second.first; ++j)
         {
-            bitmap.index(i, j) = filled;
+            bitmap.index(j, i) = filled;
         }
     }
 }
@@ -22,9 +22,23 @@ void Bitmap::simplify()
     deleteSmallRectangles();
 }
 
-std::string Bitmap::writeInstructions() const
+void Bitmap::writeInstructions(std::string &bitmap_instruction)
 {
-    /**/
+    bitmap_instruction = "";
+    std::string rectangle_instructions;
+    for (int i = 0; i != bitmap.height; ++i)
+    {
+        for (int j = 0; j != bitmap.width; ++j)
+        {
+            if (bitmap.index(j, i) == filled)
+            {
+                bitmap_instruction.append(std::to_string(j) + " " + std::to_string(i) + " ");
+                bitmap_instruction.append(std::to_string(MeasureRectangleWidth(j, i)) +  " " + std::to_string(MeasureRectangleHeight(j, i)) + " ");
+                bitmap_instruction.append("r p2\n");
+                setRectangleWritten(j, i);
+            }
+        }
+    }
 }
 
 void Bitmap::mergeCloseRectangles()
@@ -44,39 +58,55 @@ void Bitmap::deleteSmallRectangles()
     {
         for (int j = 0; j != bitmap.width; ++j)
         {
-            if (bitmap.index == filled && isRectangleSmall(j, i))
+            if (bitmap.index(j, i) == filled && MeasureRectangleWidth(j, i) < visible_length && MeasureRectangleHeight(j, i) < visible_length)
                 deleteRectangle(j, i);
         }
     }
 }
 
-bool Bitmap::isRectangleSmall(int x, int y)
+int Bitmap::MeasureRectangleWidth(int x, int y)
 {
-    int rectangleLength = 0;
-    while (bitmap.index(x, y) == filled)
+    int rectangleWidth = 0;
+    while (bitmap.index(x, y) != empty)
     {
         ++x;
-        ++rectangleLength;
+        ++rectangleWidth;
     }
-    if (rectangleLength >= visible_length)
-        return false;
-    rectangleLength = 0;
-    while (bitmap.index(x, y) == filled)
+    return rectangleWidth;
+}
+
+int Bitmap::MeasureRectangleHeight(int x, int y)
+{
+    int rectangleHeight = 0;
+    while (bitmap.index(x, y) != empty)
     {
-        ++y;
-        ++rectangleLength;
+        ++x;
+        ++rectangleHeight;
     }
-    if (rectangleLength >= visible_length)
-        return false;
-    return true;
+    return rectangleHeight;
+}
+
+void Bitmap::setRectangleWritten(int x, int y)
+{
+    int tmp = x;
+    while (bitmap.index(x, y) != empty)
+    {
+        while (bitmap.index(x, y) != empty)
+        {
+            bitmap.index(x, y) = written;
+            ++x;
+        }
+        x = tmp;
+        ++y;
+    }
 }
 
 void Bitmap::deleteRectangle(int x, int y)
 {
     int tmp = x;
-    while (bitmap.index(x, y) == filled)
+    while (bitmap.index(x, y) != empty)
     {
-        while (bitmap.index(x, y) == filled)
+        while (bitmap.index(x, y) != empty)
         {
             bitmap.index(x, y) = empty;
             ++x;

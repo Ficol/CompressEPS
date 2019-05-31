@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <string>
+#include <regex>
 #include <vector>
 #include <memory>
 #include <utility>
@@ -17,17 +18,18 @@ public:
   using Box = std::pair<Point, Point>;
 
   InstructionInterpreter(const std::string &file_name);
+  ~InstructionInterpreter();
   InstructionInterpreter(const InstructionInterpreter &) = delete;
   InstructionInterpreter &operator=(const InstructionInterpreter &) = delete;
 
-  void checkFormat() const;
-  void setChains(std::vector<Chain> &chains, const int target_width) const;
-  void setBitmap(std::unique_ptr<Bitmap> &bitmap, const int target_width) const;
-  std::string getPrologue() const;
-  std::string getEpilogue() const;
+  void checkFormat();
+  void setChains(std::vector<Chain> &chains, const int target_width);
+  void setBitmap(std::unique_ptr<Bitmap> &bitmap, const int target_width);
+  void setPrologue(std::string &prologue);
+  void setEpilogue(std::string &epilogue);
 
 private:
-  Box getBoundingBox() const;
+  Box getBoundingBox();
   /**/
 
   std::ifstream eps_file;

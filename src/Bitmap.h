@@ -17,12 +17,14 @@ public:
   enum state {empty, filled, written};
   void addRectangle(const Box rectangle);
   void simplify();
-  std::string writeInstructions() const;
+  void writeInstructions(std::string &bitmap_instruction);
 
 private:
   void mergeCloseRectangles();
   void deleteSmallRectangles();
-  bool isRectangleSmall(int x, int y);
+  int MeasureRectangleWidth(int x, int y);
+  int MeasureRectangleHeight(int x, int y);
+  void setRectangleWritten(int x, int y);
   void deleteRectangle(int x, int y);
 
   const Box bounding_box;
@@ -32,7 +34,7 @@ private:
   public:
     Array2D(const double width, const double height);
 
-    state &index(const int x, const int y);
+    enum state &index(const int x, const int y);
 
     const int width;
     const int height;

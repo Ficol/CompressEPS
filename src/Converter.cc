@@ -19,10 +19,17 @@ void Converter::saveOutputFile(const std::string &output_file_name)
     output_file.open(output_file_name);
     if(!output_file.is_open())
         throw std::ios_base::failure("Can't open output file\n");
-    output_file << instruction_interpreter.getPrologue()
-    << bitmap->writeInstructions();
+    std::string eps_element;
+    instruction_interpreter.setPrologue(eps_element);
+    output_file << eps_element;
+    bitmap->writeInstructions(eps_element);
+    output_file << eps_element;
     for(const Chain &a : chains)
-        output_file << a.writeInstructions();
-    output_file << instruction_interpreter.getEpilogue();
+    {
+        a.writeInstructions(eps_element);
+        output_file << eps_element;
+    }
+    instruction_interpreter.setEpilogue(eps_element);
+    output_file << eps_element;
     output_file.close();
 }

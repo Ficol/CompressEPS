@@ -16,7 +16,7 @@ public:
   Chain &operator=(const Chain &) = delete;
 
   void addPoint(const Point point);
-  std::string writeInstructions() const;
+  void writeInstructions(std::string &chain_instruction) const;
   void simplify();
 
 private:
