@@ -5,6 +5,8 @@
 #include <utility>
 #include <vector>
 #include <cmath>
+#include <sstream>
+#include <iomanip>
 
 class Bitmap
 {
@@ -14,30 +16,34 @@ public:
   Bitmap(const Box bounding_box, double visible_length);
   Bitmap(const Bitmap &) = delete;
   Bitmap &operator=(const Bitmap &) = delete;
-  enum state {empty, filled, written};
+  enum state
+  {
+    empty,
+    filled,
+    written
+  };
   void addRectangle(const Box rectangle);
   void simplify();
   void writeInstructions(std::string &bitmap_instruction);
 
 private:
-  void mergeCloseRectangles();
   void deleteSmallRectangles();
-  int MeasureRectangleWidth(int x, int y);
-  int MeasureRectangleHeight(int x, int y);
-  void setRectangleWritten(int x, int y);
-  void deleteRectangle(int x, int y);
+  size_t measureRectangleWidth(size_t x, size_t y);
+  size_t measureRectangleHeight(size_t x, size_t y);
+  void setRectangleWritten(size_t x, size_t y, size_t width, size_t height);
+  void deleteRectangle(size_t x, size_t y, size_t width, size_t height);
 
   const Box bounding_box;
-  const int visible_length;
+  const double visible_length;
   class Array2D
   {
   public:
     Array2D(const double width, const double height);
 
-    enum state &index(const int x, const int y);
+    enum state &index(const size_t x, const size_t y);
 
-    const int width;
-    const int height;
+    const size_t width;
+    const size_t height;
     std::vector<state> array;
   } bitmap;
 };

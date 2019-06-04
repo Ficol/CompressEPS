@@ -23,15 +23,13 @@ public:
   InstructionInterpreter &operator=(const InstructionInterpreter &) = delete;
 
   void checkFormat();
-  void setChains(std::vector<Chain> &chains, const int target_width);
-  void setBitmap(std::unique_ptr<Bitmap> &bitmap, const int target_width);
+  void setChains(std::vector<Chain> &chains, const size_t target_width);
+  void setBitmap(std::unique_ptr<Bitmap> &bitmap, const size_t target_width);
   void setPrologue(std::string &prologue);
   void setEpilogue(std::string &epilogue);
 
 private:
   Box getBoundingBox();
-  /**/
-
   std::ifstream eps_file;
 };
 

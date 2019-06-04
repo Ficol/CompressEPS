@@ -1,6 +1,6 @@
 #include "Converter.h"
 
-Converter::Converter(const std::string &input_file, const int target_width) : instruction_interpreter(input_file)
+Converter::Converter(const std::string &input_file, const size_t target_width) : instruction_interpreter(input_file)
 {
     instruction_interpreter.checkFormat();
     instruction_interpreter.setChains(chains, target_width);

@@ -1,7 +1,22 @@
 #include "Chain.h"
 
-Chain::Chain(const double line_width, const double visible_length) : line_width(line_width), visible_length(visible_length)
+Chain::Chain(const double visible_length) : visible_length(visible_length)
 {
+}
+
+Chain::Chain(const Chain &_chain) : line_width(_chain.line_width), visible_length(_chain.visible_length)
+{
+    chain = _chain.chain;
+}
+
+Chain &Chain::operator=(const Chain &_chain)
+{
+    if (&_chain == this)
+        return *this;
+    line_width = _chain.line_width;
+    visible_length = _chain.visible_length;
+    chain = _chain.chain;
+    return *this;
 }
 
 void Chain::addPoint(const Point point)
@@ -11,31 +26,56 @@ void Chain::addPoint(const Point point)
 
 void Chain::writeInstructions(std::string &chain_instruction) const
 {
+    std::ostringstream instruction;
+    instruction << std::fixed;
+    instruction << std::setprecision(2);
     chain_instruction = "newpath\n";
-    chain_instruction.append(std::to_string(chain.begin()->first) + " ");
-    chain_instruction.append(std::to_string(chain.begin()->second) + " m\n");
-    for(auto i = ++chain.begin(); i != chain.end(); ++i)
+    instruction << chain.begin()->first << " ";
+    instruction << chain.begin()->second << " m\n";
+    for (auto i = ++chain.begin(); i != chain.end(); ++i)
     {
-        chain_instruction.append(std::to_string(i->first - (--i)->first) + " ");
-        chain_instruction.append(std::to_string(i->second - (--i)->second) + " l\n");
+        instruction << i->first - std::prev(i)->first << " ";
+        instruction << i->second - std::prev(i)->second << " l\n";
     }
-    chain_instruction.append(std::to_string(line_width) + "setlinewidth\nstroke\n");
+    instruction << line_width << " setlinewidth\nstroke\n";
+    chain_instruction += instruction.str();
 }
 
 void Chain::simplify()
 {
-    if(chain.size() <= 2)
+    if (chain.size() <= 2)
         return;
     auto i = ++chain.begin();
-    while(i != --chain.end())
+    bool simplifyEnd = false;
+    while (!simplifyEnd)
     {
-        if(measureSegment(*(--i), *i) + measureSegment(*i, *(++i)) - measureSegment(*(--i), *(++i)) < visible_length)
+        simplifyEnd = true;
+        while (i != --chain.end())
         {
-            --i;
-            chain.erase(++i);
+            if (measureSegment(*(std::prev(i)), *i) + measureSegment(*i, *(std::next(i))) - measureSegment(*(std::prev(i)), *(std::next(i))) < visible_length)
+            {
+                --i;
+                simplifyEnd = false;
+                chain.erase(std::next(i));
+            }
+            ++i;
         }
-        else ++i;
     }
+}
+
+size_t Chain::getPointAmount()
+{
+    return chain.size();
+}
+
+void Chain::clear()
+{
+    chain.clear();
+}
+
+void Chain::setLineWidth(size_t _line_width)
+{
+    line_width = _line_width;
 }
 
 double Chain::measureSegment(const Point a, const Point b)

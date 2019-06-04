@@ -12,7 +12,7 @@
 class Converter
 {
 public:
-  Converter(const std::string &input_file, const int target_width);
+  Converter(const std::string &input_file, const size_t target_width);
   Converter(const Converter &) = delete;
   Converter &operator=(const Converter &) = delete;
 
