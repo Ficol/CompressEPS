@@ -19,12 +19,14 @@ class Bitmap
 public:
   using Point = std::pair<double, double>;
   /**
-   * @brief To represent rectangle as lower-left and upper-right corner
+   * @brief Represents rectangle as lower-left and upper-right corner
    */
   using Box = std::pair<Point, Point>;
   /**
    * @brief Construct a new Bitmap object
-   * length of one point in bitmap equals visible_length
+   * 
+   * @param bounding_box Bounds of eps image
+   * @param visible_length Minimal length that can be seen for given target width
    */
   Bitmap(const Box bounding_box, double visible_length);
   Bitmap(const Bitmap &) = delete;
@@ -32,7 +34,7 @@ public:
   bool operator==(const Bitmap &) const;
   bool operator!=(const Bitmap &) const;
   /**
-    * @brief states of points in bitmap:
+    * @brief states of points in bitmap
     */
   enum state
   {
@@ -47,7 +49,8 @@ public:
    */
   void addRectangle(const Box rectangle);
   /**
-   * @brief Simplifies bitmap
+   * @brief Simplifies bitmap.\n
+   * Deletes very small rectangles.
    * 
    */
   void simplify();
@@ -59,25 +62,15 @@ public:
   void writeInstructions(std::string &bitmap_instruction);
 
 private:
-  /**
-    * @brief Deletes rectangles 1x1 in bitmap,
-    * part of simplify method
-    * 
-    */
+
   void deleteSmallRectangles();
-  /**
-   * @brief Measures size of maximal possible rectangle that can be created
-   * 
-   * @param x 
-   * @param y 
-   * @return size_t 
-   */
   size_t measureRectangleWidth(size_t x, size_t y);
   size_t measureRectangleHeight(size_t x, size_t y, size_t width);
   void setRectangleWritten(size_t x, size_t y, size_t width, size_t height);
 
   const Box bounding_box;
   const double visible_length;
+ 
   class Array2D
   {
   public:

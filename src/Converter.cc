@@ -1,3 +1,8 @@
+/**
+ * @file Converter.cc
+ * @author Jakub Ficek
+ * @brief File containing implemented methods of Converter class
+ */
 #include "Converter.h"
 
 Converter::Converter(const std::string &input_file, const size_t target_width) : instruction_interpreter(input_file)

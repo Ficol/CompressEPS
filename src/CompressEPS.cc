@@ -1,3 +1,8 @@
+/**
+ * @file CompressEPS.cc
+ * @author Jakub ficek
+ * @brief Main function
+ */
 #include "Converter.h"
 #include <iostream>
 

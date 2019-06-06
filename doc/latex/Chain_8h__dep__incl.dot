@@ -1,0 +1,19 @@
+digraph "/home/kkkok1234/Desktop/ZPR/CompressEPS/src/Chain.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node8 [label="/home/kkkok1234/Desktop\l/ZPR/CompressEPS/src/Chain.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="/home/kkkok1234/Desktop\l/ZPR/CompressEPS/src/Chain.cc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Chain_8cc.html",tooltip="File containing implemented methods of Chain class. "];
+  Node8 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="/home/kkkok1234/Desktop\l/ZPR/CompressEPS/src/Instruction\lInterpreter.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$InstructionInterpreter_8h.html",tooltip="Reads instructions from input file and converts them to objects. Verifies input file format..."];
+  Node10 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="/home/kkkok1234/Desktop\l/ZPR/CompressEPS/src/Converter.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Converter_8h.html",tooltip="Controlls classes Bitmap, Chain, InstructionInterpreter. Creates compressed output file..."];
+  Node11 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="/home/kkkok1234/Desktop\l/ZPR/CompressEPS/src/Compress\lEPS.cc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$CompressEPS_8cc.html",tooltip="Main function. "];
+  Node11 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="/home/kkkok1234/Desktop\l/ZPR/CompressEPS/src/Converter.cc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Converter_8cc.html",tooltip="File containing implemented methods of Converter class. "];
+  Node10 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="/home/kkkok1234/Desktop\l/ZPR/CompressEPS/src/Instruction\lInterpreter.cc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$InstructionInterpreter_8cc.html",tooltip="File containing implemented methods of Bitmap class. "];
+  Node8 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+}

@@ -1,0 +1,101 @@
+\hypertarget{classBitmap}{}\section{Bitmap Class Reference}
+\label{classBitmap}\index{Bitmap@{Bitmap}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBitmap_a8d665e531eb2ed986092ba9c0602099e}\label{classBitmap_a8d665e531eb2ed986092ba9c0602099e}} 
+enum \hyperlink{classBitmap_a8d665e531eb2ed986092ba9c0602099e}{state} \{ {\bfseries empty}, 
+{\bfseries filled}, 
+{\bfseries written}
+ \}\begin{DoxyCompactList}\small\item\em states of points in bitmap \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{classBitmap_aea97c2c6358d530bae391c0aa4e3595b}\label{classBitmap_aea97c2c6358d530bae391c0aa4e3595b}} 
+using {\bfseries Point} = std\+::pair$<$ double, double $>$
+\item 
+\mbox{\Hypertarget{classBitmap_a4ef20f862dd63c87245bd19bd5b04989}\label{classBitmap_a4ef20f862dd63c87245bd19bd5b04989}} 
+using \hyperlink{classBitmap_a4ef20f862dd63c87245bd19bd5b04989}{Box} = std\+::pair$<$ Point, Point $>$
+\begin{DoxyCompactList}\small\item\em Represents rectangle as lower-\/left and upper-\/right corner. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBitmap_a6899488808710064dad3921131fff474}{Bitmap} (const \hyperlink{classBitmap_a4ef20f862dd63c87245bd19bd5b04989}{Box} bounding\+\_\+box, double visible\+\_\+length)
+\begin{DoxyCompactList}\small\item\em Construct a new \hyperlink{classBitmap}{Bitmap} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBitmap_a80fb160770c7c1e183b5e62ef8d6f095}\label{classBitmap_a80fb160770c7c1e183b5e62ef8d6f095}} 
+{\bfseries Bitmap} (const \hyperlink{classBitmap}{Bitmap} \&)=delete
+\item 
+\mbox{\Hypertarget{classBitmap_a12dc6e22bd7b93e9236f8b0fd47b5477}\label{classBitmap_a12dc6e22bd7b93e9236f8b0fd47b5477}} 
+\hyperlink{classBitmap}{Bitmap} \& {\bfseries operator=} (const \hyperlink{classBitmap}{Bitmap} \&)=delete
+\item 
+\mbox{\Hypertarget{classBitmap_ab4256567d99d4be7cfb693e1dcfbc0ba}\label{classBitmap_ab4256567d99d4be7cfb693e1dcfbc0ba}} 
+bool {\bfseries operator==} (const \hyperlink{classBitmap}{Bitmap} \&) const
+\item 
+\mbox{\Hypertarget{classBitmap_a66370a5acfd748aa9c536277643dd8de}\label{classBitmap_a66370a5acfd748aa9c536277643dd8de}} 
+bool {\bfseries operator!=} (const \hyperlink{classBitmap}{Bitmap} \&) const
+\item 
+void \hyperlink{classBitmap_aa08a5543f2bdb756dd1749cd83d40c5c}{add\+Rectangle} (const \hyperlink{classBitmap_a4ef20f862dd63c87245bd19bd5b04989}{Box} rectangle)
+\begin{DoxyCompactList}\small\item\em Adds rectangle to bitmap. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBitmap_a98ad7ff726619eac51977b0794f96faa}\label{classBitmap_a98ad7ff726619eac51977b0794f96faa}} 
+void \hyperlink{classBitmap_a98ad7ff726619eac51977b0794f96faa}{simplify} ()
+\begin{DoxyCompactList}\small\item\em Simplifies bitmap.~\newline
+Deletes very small rectangles. \end{DoxyCompactList}\item 
+void \hyperlink{classBitmap_a92622df4e0f7c13e9eb3db5816e6d062}{write\+Instructions} (std\+::string \&bitmap\+\_\+instruction)
+\begin{DoxyCompactList}\small\item\em Writes instructions based on filled bitmap. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBitmap_a6899488808710064dad3921131fff474}\label{classBitmap_a6899488808710064dad3921131fff474}} 
+\index{Bitmap@{Bitmap}!Bitmap@{Bitmap}}
+\index{Bitmap@{Bitmap}!Bitmap@{Bitmap}}
+\subsubsection{\texorpdfstring{Bitmap()}{Bitmap()}}
+{\footnotesize\ttfamily Bitmap\+::\+Bitmap (\begin{DoxyParamCaption}\item[{const \hyperlink{classBitmap_a4ef20f862dd63c87245bd19bd5b04989}{Box}}]{bounding\+\_\+box,  }\item[{double}]{visible\+\_\+length }\end{DoxyParamCaption})}
+
+
+
+Construct a new \hyperlink{classBitmap}{Bitmap} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bounding\+\_\+box} & Bounds of eps image \\
+\hline
+{\em visible\+\_\+length} & Minimal length that can be seen for given target width \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classBitmap_aa08a5543f2bdb756dd1749cd83d40c5c}\label{classBitmap_aa08a5543f2bdb756dd1749cd83d40c5c}} 
+\index{Bitmap@{Bitmap}!add\+Rectangle@{add\+Rectangle}}
+\index{add\+Rectangle@{add\+Rectangle}!Bitmap@{Bitmap}}
+\subsubsection{\texorpdfstring{add\+Rectangle()}{addRectangle()}}
+{\footnotesize\ttfamily void Bitmap\+::add\+Rectangle (\begin{DoxyParamCaption}\item[{const \hyperlink{classBitmap_a4ef20f862dd63c87245bd19bd5b04989}{Box}}]{rectangle }\end{DoxyParamCaption})}
+
+
+
+Adds rectangle to bitmap. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rectangle} & Rectangle to be added \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBitmap_a92622df4e0f7c13e9eb3db5816e6d062}\label{classBitmap_a92622df4e0f7c13e9eb3db5816e6d062}} 
+\index{Bitmap@{Bitmap}!write\+Instructions@{write\+Instructions}}
+\index{write\+Instructions@{write\+Instructions}!Bitmap@{Bitmap}}
+\subsubsection{\texorpdfstring{write\+Instructions()}{writeInstructions()}}
+{\footnotesize\ttfamily void Bitmap\+::write\+Instructions (\begin{DoxyParamCaption}\item[{std\+::string \&}]{bitmap\+\_\+instruction }\end{DoxyParamCaption})}
+
+
+
+Writes instructions based on filled bitmap. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bitmap\+\_\+instruction} & String in which instructions are saved \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/kkkok1234/\+Desktop/\+Z\+P\+R/\+Compress\+E\+P\+S/src/\hyperlink{Bitmap_8h}{Bitmap.\+h}\item 
+/home/kkkok1234/\+Desktop/\+Z\+P\+R/\+Compress\+E\+P\+S/src/\hyperlink{Bitmap_8cc}{Bitmap.\+cc}\end{DoxyCompactItemize}

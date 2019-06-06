@@ -1,0 +1,96 @@
+\hypertarget{classChain}{}\section{Chain Class Reference}
+\label{classChain}\index{Chain@{Chain}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classChain_a0a2c454908c0e166c6985a867522b991}\label{classChain_a0a2c454908c0e166c6985a867522b991}} 
+using {\bfseries Point} = std\+::pair$<$ double, double $>$
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classChain_ae83cd1f4d353400133510c2850d53ee8}{Chain} (const double visible\+\_\+length)
+\begin{DoxyCompactList}\small\item\em Construct a new \hyperlink{classChain}{Chain} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChain_ae157a345679fc4e56f95a12e4e0e7f4c}\label{classChain_ae157a345679fc4e56f95a12e4e0e7f4c}} 
+{\bfseries Chain} (const \hyperlink{classChain}{Chain} \&chain)
+\item 
+\mbox{\Hypertarget{classChain_abe465bc1202268a698c3101d39110727}\label{classChain_abe465bc1202268a698c3101d39110727}} 
+\hyperlink{classChain}{Chain} \& {\bfseries operator=} (const \hyperlink{classChain}{Chain} \&)
+\item 
+\mbox{\Hypertarget{classChain_afd36eb95a5c92d455a700f5e76222dc5}\label{classChain_afd36eb95a5c92d455a700f5e76222dc5}} 
+bool {\bfseries operator==} (const \hyperlink{classChain}{Chain} \&) const
+\item 
+\mbox{\Hypertarget{classChain_a0f34a70a869d1c4bedc2929977fefb1d}\label{classChain_a0f34a70a869d1c4bedc2929977fefb1d}} 
+bool {\bfseries operator!=} (const \hyperlink{classChain}{Chain} \&) const
+\item 
+\mbox{\Hypertarget{classChain_ad1dcec1954b1a415ad20007b5ebb31a8}\label{classChain_ad1dcec1954b1a415ad20007b5ebb31a8}} 
+void \hyperlink{classChain_ad1dcec1954b1a415ad20007b5ebb31a8}{add\+Point} (const Point point)
+\begin{DoxyCompactList}\small\item\em Add point at the end of chain. \end{DoxyCompactList}\item 
+void \hyperlink{classChain_aac67033453e68be0f6dd735c7490d3a6}{write\+Instructions} (std\+::string \&chain\+\_\+instruction) const
+\begin{DoxyCompactList}\small\item\em Writes instruction based on state of chain. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChain_a1de81192e91f9c6103ee1c6fa87c99c6}\label{classChain_a1de81192e91f9c6103ee1c6fa87c99c6}} 
+void \hyperlink{classChain_a1de81192e91f9c6103ee1c6fa87c99c6}{simplify} ()
+\begin{DoxyCompactList}\small\item\em Simplifies \hyperlink{classChain}{Chain}. Deletes points that are close to be collinear. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classChain_a44bebbae966ec82bf2ab0df98307f8f5}{get\+Point\+Amount} ()
+\begin{DoxyCompactList}\small\item\em Get the Point Amount object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChain_a3f8998e70c9a7088509035164f5dec06}\label{classChain_a3f8998e70c9a7088509035164f5dec06}} 
+void \hyperlink{classChain_a3f8998e70c9a7088509035164f5dec06}{clear} ()
+\begin{DoxyCompactList}\small\item\em Removes all points in chain. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChain_acf59b8f5e5e21d0f03f49777cbe2d8f9}\label{classChain_acf59b8f5e5e21d0f03f49777cbe2d8f9}} 
+void \hyperlink{classChain_acf59b8f5e5e21d0f03f49777cbe2d8f9}{set\+Line\+Width} (size\+\_\+t \+\_\+line\+\_\+width)
+\begin{DoxyCompactList}\small\item\em Set the line width of \hyperlink{classChain}{Chain}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classChain_ae83cd1f4d353400133510c2850d53ee8}\label{classChain_ae83cd1f4d353400133510c2850d53ee8}} 
+\index{Chain@{Chain}!Chain@{Chain}}
+\index{Chain@{Chain}!Chain@{Chain}}
+\subsubsection{\texorpdfstring{Chain()}{Chain()}}
+{\footnotesize\ttfamily Chain\+::\+Chain (\begin{DoxyParamCaption}\item[{const double}]{visible\+\_\+length }\end{DoxyParamCaption})}
+
+
+
+Construct a new \hyperlink{classChain}{Chain} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em visible\+\_\+length} & Minimal length that can be seen for given target width \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classChain_a44bebbae966ec82bf2ab0df98307f8f5}\label{classChain_a44bebbae966ec82bf2ab0df98307f8f5}} 
+\index{Chain@{Chain}!get\+Point\+Amount@{get\+Point\+Amount}}
+\index{get\+Point\+Amount@{get\+Point\+Amount}!Chain@{Chain}}
+\subsubsection{\texorpdfstring{get\+Point\+Amount()}{getPointAmount()}}
+{\footnotesize\ttfamily size\+\_\+t Chain\+::get\+Point\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Point Amount object. 
+
+\begin{DoxyReturn}{Returns}
+Amount of points in chain 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChain_aac67033453e68be0f6dd735c7490d3a6}\label{classChain_aac67033453e68be0f6dd735c7490d3a6}} 
+\index{Chain@{Chain}!write\+Instructions@{write\+Instructions}}
+\index{write\+Instructions@{write\+Instructions}!Chain@{Chain}}
+\subsubsection{\texorpdfstring{write\+Instructions()}{writeInstructions()}}
+{\footnotesize\ttfamily void Chain\+::write\+Instructions (\begin{DoxyParamCaption}\item[{std\+::string \&}]{chain\+\_\+instruction }\end{DoxyParamCaption}) const}
+
+
+
+Writes instruction based on state of chain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chain\+\_\+instruction} & String in which instructions are saved \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/kkkok1234/\+Desktop/\+Z\+P\+R/\+Compress\+E\+P\+S/src/\hyperlink{Chain_8h}{Chain.\+h}\item 
+/home/kkkok1234/\+Desktop/\+Z\+P\+R/\+Compress\+E\+P\+S/src/\hyperlink{Chain_8cc}{Chain.\+cc}\end{DoxyCompactItemize}

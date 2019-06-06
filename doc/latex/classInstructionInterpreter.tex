@@ -1,0 +1,64 @@
+\hypertarget{classInstructionInterpreter}{}\section{Instruction\+Interpreter Class Reference}
+\label{classInstructionInterpreter}\index{Instruction\+Interpreter@{Instruction\+Interpreter}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInstructionInterpreter_acef6f6df65120af8bdcad60227f4dc21}\label{classInstructionInterpreter_acef6f6df65120af8bdcad60227f4dc21}} 
+using {\bfseries Point} = std\+::pair$<$ double, double $>$
+\item 
+\mbox{\Hypertarget{classInstructionInterpreter_a19c3464185b5211185bd99dfba8fab35}\label{classInstructionInterpreter_a19c3464185b5211185bd99dfba8fab35}} 
+using {\bfseries Box} = std\+::pair$<$ Point, Point $>$
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classInstructionInterpreter_aebf62d78abc0f1aff6860229455fc0f0}{Instruction\+Interpreter} (const std\+::string \&file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Opens input file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInstructionInterpreter_a2d10e25e756a4c67f733bbb2df3483c0}\label{classInstructionInterpreter_a2d10e25e756a4c67f733bbb2df3483c0}} 
+\hyperlink{classInstructionInterpreter_a2d10e25e756a4c67f733bbb2df3483c0}{$\sim$\+Instruction\+Interpreter} ()
+\begin{DoxyCompactList}\small\item\em Closes input file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInstructionInterpreter_abeb094bcca859d5ad471956602885fc4}\label{classInstructionInterpreter_abeb094bcca859d5ad471956602885fc4}} 
+{\bfseries Instruction\+Interpreter} (const \hyperlink{classInstructionInterpreter}{Instruction\+Interpreter} \&)=delete
+\item 
+\mbox{\Hypertarget{classInstructionInterpreter_a2198e9ed773066a3b4a33195db4c6ce0}\label{classInstructionInterpreter_a2198e9ed773066a3b4a33195db4c6ce0}} 
+\hyperlink{classInstructionInterpreter}{Instruction\+Interpreter} \& {\bfseries operator=} (const \hyperlink{classInstructionInterpreter}{Instruction\+Interpreter} \&)=delete
+\item 
+\mbox{\Hypertarget{classInstructionInterpreter_a21b960673fa4b5d24fba708b938dd9e3}\label{classInstructionInterpreter_a21b960673fa4b5d24fba708b938dd9e3}} 
+void \hyperlink{classInstructionInterpreter_a21b960673fa4b5d24fba708b938dd9e3}{check\+Format} ()
+\begin{DoxyCompactList}\small\item\em Checks corectness of instructions in input file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInstructionInterpreter_ad1fb5d525fbcc6baaa1234c436622ad6}\label{classInstructionInterpreter_ad1fb5d525fbcc6baaa1234c436622ad6}} 
+void \hyperlink{classInstructionInterpreter_ad1fb5d525fbcc6baaa1234c436622ad6}{set\+Chains} (std\+::vector$<$ \hyperlink{classChain}{Chain} $>$ \&chains, const size\+\_\+t target\+\_\+width)
+\begin{DoxyCompactList}\small\item\em Finds specific instructions and add chain objects to vector of chains. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInstructionInterpreter_ab075d23d07b2a41c506eb761b653dbed}\label{classInstructionInterpreter_ab075d23d07b2a41c506eb761b653dbed}} 
+void \hyperlink{classInstructionInterpreter_ab075d23d07b2a41c506eb761b653dbed}{set\+Bitmap} (std\+::unique\+\_\+ptr$<$ \hyperlink{classBitmap}{Bitmap} $>$ \&bitmap, const size\+\_\+t target\+\_\+width)
+\begin{DoxyCompactList}\small\item\em Finds specific instructions and add rectangles to \hyperlink{classBitmap}{Bitmap} Object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInstructionInterpreter_ac5dcda0bc13484bce0d2be028280e4b7}\label{classInstructionInterpreter_ac5dcda0bc13484bce0d2be028280e4b7}} 
+void \hyperlink{classInstructionInterpreter_ac5dcda0bc13484bce0d2be028280e4b7}{set\+Prologue} (std\+::string \&prologue)
+\begin{DoxyCompactList}\small\item\em Set Prologue of output file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInstructionInterpreter_ae2d7afe1a51193099f8d501d744348d6}\label{classInstructionInterpreter_ae2d7afe1a51193099f8d501d744348d6}} 
+void \hyperlink{classInstructionInterpreter_ae2d7afe1a51193099f8d501d744348d6}{set\+Epilogue} (std\+::string \&epilogue)
+\begin{DoxyCompactList}\small\item\em Set Epilogue of output file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classInstructionInterpreter_aebf62d78abc0f1aff6860229455fc0f0}\label{classInstructionInterpreter_aebf62d78abc0f1aff6860229455fc0f0}} 
+\index{Instruction\+Interpreter@{Instruction\+Interpreter}!Instruction\+Interpreter@{Instruction\+Interpreter}}
+\index{Instruction\+Interpreter@{Instruction\+Interpreter}!Instruction\+Interpreter@{Instruction\+Interpreter}}
+\subsubsection{\texorpdfstring{Instruction\+Interpreter()}{InstructionInterpreter()}}
+{\footnotesize\ttfamily Instruction\+Interpreter\+::\+Instruction\+Interpreter (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Opens input file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & Input eps file \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/kkkok1234/\+Desktop/\+Z\+P\+R/\+Compress\+E\+P\+S/src/\hyperlink{InstructionInterpreter_8h}{Instruction\+Interpreter.\+h}\item 
+/home/kkkok1234/\+Desktop/\+Z\+P\+R/\+Compress\+E\+P\+S/src/\hyperlink{InstructionInterpreter_8cc}{Instruction\+Interpreter.\+cc}\end{DoxyCompactItemize}

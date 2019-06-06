@@ -1,0 +1,18 @@
+\hypertarget{Bitmap_8cc}{}\section{/home/kkkok1234/\+Desktop/\+Z\+P\+R/\+Compress\+E\+P\+S/src/\+Bitmap.cc File Reference}
+\label{Bitmap_8cc}\index{/home/kkkok1234/\+Desktop/\+Z\+P\+R/\+Compress\+E\+P\+S/src/\+Bitmap.\+cc@{/home/kkkok1234/\+Desktop/\+Z\+P\+R/\+Compress\+E\+P\+S/src/\+Bitmap.\+cc}}
+
+
+File containing implemented methods of \hyperlink{classBitmap}{Bitmap} class.  
+
+
+{\ttfamily \#include \char`\"{}Bitmap.\+h\char`\"{}}\newline
+Include dependency graph for Bitmap.\+cc\+:
+% FIG 0
+
+
+\subsection{Detailed Description}
+File containing implemented methods of \hyperlink{classBitmap}{Bitmap} class. 
+
+\begin{DoxyAuthor}{Author}
+Jakub Ficek 
+\end{DoxyAuthor}

@@ -1,3 +1,8 @@
+/**
+ * @file InstructionInterpreter.cc
+ * @author Jakub Ficek
+ * @brief File containing implemented methods of Bitmap class
+ */
 #include "InstructionInterpreter.h"
 
 InstructionInterpreter::InstructionInterpreter(const std::string &file_name)

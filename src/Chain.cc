@@ -1,3 +1,9 @@
+/**
+ * @file Chain.cc
+ * @author Jakub Ficek
+ * @brief File containing implemented methods of Chain class
+ */
+
 #include "Chain.h"
 
 Chain::Chain(const double visible_length) : visible_length(visible_length)

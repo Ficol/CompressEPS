@@ -2,8 +2,6 @@
  * @file Bitmap.cc
  * @author Jakub Ficek
  * @brief File containing implemented methods of Bitmap class
- * 
- * 
  */
 
 #include "Bitmap.h"
