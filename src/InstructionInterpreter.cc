@@ -57,8 +57,6 @@ InstructionInterpreter::Box InstructionInterpreter::getBoundingBox()
     }
     Box bounding_box;
     line_stream >> line >> bounding_box.first.first >> bounding_box.first.second >> bounding_box.second.first >> bounding_box.second.second;
-    bounding_box.second.first += bounding_box.first.first;
-    bounding_box.second.second += bounding_box.first.second;
     return bounding_box;
 }
 
@@ -73,6 +71,7 @@ void InstructionInterpreter::setChains(std::vector<Chain> &chains, const size_t 
         if (line == "newpath")
         {
             Chain new_chain(0.01 * (bounding_box.second.first - bounding_box.first.first) / static_cast<double>(target_width));
+            new_chain.setLineWidth(1);
             Point previous_point = std::make_pair(0, 0);
             while (line.find("stroke") == std::string::npos)
             {
@@ -112,13 +111,13 @@ void InstructionInterpreter::setChains(std::vector<Chain> &chains, const size_t 
 void InstructionInterpreter::setBitmap(std::unique_ptr<Bitmap> &bitmap, const size_t target_width)
 {
     Box bounding_box = getBoundingBox();
-    bitmap = std::make_unique<Bitmap>(bounding_box, 0.01 * (bounding_box.second.first - bounding_box.first.first) / static_cast<double>(target_width));
+    bitmap = std::make_unique<Bitmap>(bounding_box, (bounding_box.second.first - bounding_box.first.first) / static_cast<double>(target_width));
     eps_file.clear();
     eps_file.seekg(0, std::ios::beg);
     std::string line;
     while (std::getline(eps_file, line))
     {
-        if(line.find(" r p2"))
+        if (line.find(" r p2"))
         {
             Box new_rectangle;
             std::stringstream line_stream;

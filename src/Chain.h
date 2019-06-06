@@ -8,6 +8,7 @@
 #include <iterator>
 #include <sstream>
 #include <iomanip>
+
 class Chain
 {
 public:
@@ -16,6 +17,8 @@ public:
   Chain(const double visible_length);
   Chain(const Chain &chain);
   Chain &operator=(const Chain &);
+  bool operator==(const Chain &) const;
+  bool operator!=(const Chain &) const;
 
   void addPoint(const Point point);
   void writeInstructions(std::string &chain_instruction) const;

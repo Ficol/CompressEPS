@@ -19,6 +19,18 @@ Chain &Chain::operator=(const Chain &_chain)
     return *this;
 }
 
+bool Chain::operator==(const Chain &other_chain) const
+{
+    if(line_width != other_chain.line_width)
+        return false;
+    return chain == other_chain.chain;
+}
+
+bool Chain::operator!=(const Chain &other_chain) const
+{
+    return !(*this == other_chain);
+}
+
 void Chain::addPoint(const Point point)
 {
     chain.push_back(point);
@@ -26,6 +38,11 @@ void Chain::addPoint(const Point point)
 
 void Chain::writeInstructions(std::string &chain_instruction) const
 {
+    if(chain.size() <= 1)
+    {
+        chain_instruction = "";
+        return;
+    }
     std::ostringstream instruction;
     instruction << std::fixed;
     instruction << std::setprecision(2);

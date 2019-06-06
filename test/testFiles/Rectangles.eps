@@ -1,0 +1,17 @@
+%%!PS-Adobe-3.0 EPSF-3.0
+%%Title: R Graphics Output
+%%Creator: R Software
+%%Pages: (atend)
+%%BoundingBox: 10 10 20 20
+/m   { moveto } bind def
+/l  { rlineto } bind def
+/gs  { gsave } bind def
+/bg { 0 0 0 srgb } def
+/srgb { setcolor } bind def
+/r   { 4 2 roll moveto 1 copy 3 -1 roll exch 0 exch rlineto 0 rlineto -1 mul 0 exch rlineto closepath } bind def
+/p2  { gsave bg fill grestore newpath } bind def
+
+10.00 10.00 5.00 5.00 r p2
+15.00 15.00 5.00 5.00 r p2
+
+showpage
