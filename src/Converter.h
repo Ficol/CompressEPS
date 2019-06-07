@@ -30,7 +30,6 @@ public:
   Converter &operator=(const Converter &) = delete;
 /**
  * @brief Converts objects to create smaller eps file
- * 
  */
   void compress();
   /**

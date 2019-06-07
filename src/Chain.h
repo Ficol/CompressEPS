@@ -3,8 +3,7 @@
 /**
  * @file Chain.h
  * @author Jakub Ficek
- * @brief  Class stores and simplifies segments from input file
- * 
+ * @brief  Class stores and simplifies segments from input file 
  */
 #include <list>
 #include <string>
@@ -39,7 +38,7 @@ public:
    */
   void writeInstructions(std::string &chain_instruction) const;
   /**
-   * @brief Simplifies Chain.
+   * @brief Simplifies Chain.\n
    * Deletes points that are close to be collinear.
    */
   void simplify();
