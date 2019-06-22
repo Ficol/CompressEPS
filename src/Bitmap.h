@@ -38,9 +38,9 @@ public:
     */
   enum state
   {
-    empty,
-    filled,
-    written
+    EMPTY,
+    FILLED,
+    WRITTEN
   };
   /**
    * @brief Adds rectangle to bitmap
